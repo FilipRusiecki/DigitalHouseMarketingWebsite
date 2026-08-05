@@ -1,0 +1,8 @@
+{
+  "build": {
+    "env": {
+      "ENABLE_EXPERIMENTAL_COREPACK": "1"
+    }
+  },
+  "buildCommand": "yarn rw build --verbose"
+}
