@@ -6,7 +6,7 @@
 # https://redwoodjs.com/docs/app-configuration-redwood-toml
 
 [web]
-  title = "Digital House"
+  title = "Digital House Marketing"
   port = 8910
   apiUrl = "/api"
   includeEnvironmentVariables = [

@@ -1,73 +1,87 @@
-import { motion } from 'framer-motion'
+const SitePreview = () => (
+  <div className="relative mx-auto w-full max-w-md lg:max-w-none">
+    <div className="overflow-hidden rounded-lg border border-dh-navy/15 bg-dh-cream shadow-[0_24px_60px_-28px_rgba(12,35,64,0.35)]">
+      <div className="flex items-center gap-2 border-b border-dh-navy/10 bg-dh-cream-deep px-4 py-3">
+        <span className="h-2.5 w-2.5 rounded-full bg-dh-navy/25" />
+        <span className="h-2.5 w-2.5 rounded-full bg-dh-navy/25" />
+        <span className="h-2.5 w-2.5 rounded-full bg-dh-navy/25" />
+        <span className="ml-3 flex-1 rounded-sm bg-dh-cream px-3 py-1 text-[10px] text-dh-muted">
+          digitalhousemarketing.ie
+        </span>
+      </div>
+      <div className="space-y-4 bg-gradient-to-br from-dh-cream to-dh-cream-deep p-5 sm:p-6">
+        <div className="h-3 w-24 rounded-sm bg-dh-blue/40" />
+        <div className="h-8 w-4/5 rounded-sm bg-dh-navy/80" />
+        <div className="h-2.5 w-full rounded-sm bg-dh-navy/15" />
+        <div className="h-2.5 w-5/6 rounded-sm bg-dh-navy/15" />
+        <div className="mt-2 grid grid-cols-3 gap-3">
+          <div className="aspect-[4/3] rounded-sm bg-dh-navy/10" />
+          <div className="aspect-[4/3] rounded-sm bg-dh-blue/20" />
+          <div className="aspect-[4/3] rounded-sm bg-dh-navy/15" />
+        </div>
+        <div className="flex gap-2 pt-2">
+          <div className="h-8 w-28 rounded-sm bg-dh-navy" />
+          <div className="h-8 w-20 rounded-sm border border-dh-navy/20" />
+        </div>
+      </div>
+    </div>
+    <div
+      className="absolute -bottom-4 -right-4 -z-10 h-full w-full rounded-lg border border-dh-blue/20"
+      aria-hidden="true"
+    />
+  </div>
+)
 
 const Hero = () => {
   return (
-    <section className="relative flex min-h-[100svh] items-center overflow-hidden bg-dh-ink text-dh-mist">
+    <section className="relative flex min-h-[85svh] items-center overflow-hidden bg-hero-cream">
       <div
-        className="pointer-events-none absolute inset-0 bg-hero-glow"
-        aria-hidden="true"
-      />
-      <div
-        className="pointer-events-none absolute inset-0 bg-grid-fade bg-grid opacity-70"
-        aria-hidden="true"
-      />
-      <div
-        className="pointer-events-none absolute -right-24 top-1/4 h-[420px] w-[420px] rounded-full bg-dh-accent/10 blur-3xl"
+        className="pointer-events-none absolute bottom-0 right-0 top-24 hidden w-[38%] border-l border-dh-navy/10 xl:block"
         aria-hidden="true"
       />
 
-      <div className="relative z-10 mx-auto w-full max-w-6xl px-4 py-24 sm:px-6 sm:py-28">
-        <motion.div
-          initial={{ opacity: 0, y: 28 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <p className="font-display text-5xl font-extrabold tracking-tight text-dh-warm sm:text-6xl md:text-7xl lg:text-8xl">
-            Digital House
+      <div className="relative z-10 mx-auto grid w-full max-w-6xl items-center gap-12 px-4 py-20 sm:px-6 sm:py-24 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+        <div>
+          <p className="mb-6 text-sm font-semibold uppercase tracking-[0.22em] text-dh-blue">
+            Wexford · Digital studio
           </p>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-6 max-w-2xl text-balance font-display text-2xl font-semibold leading-snug text-dh-mist sm:text-3xl md:text-4xl"
-          >
-            Websites built with clarity, craft, and presence.
-          </motion.h1>
+          <p className="font-display text-5xl font-bold leading-[0.95] tracking-tight text-dh-navy sm:text-6xl md:text-7xl">
+            Digital
+            <br />
+            House
+            <span className="mt-2 block text-dh-blue">Marketing</span>
+          </p>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-5 max-w-xl text-base leading-relaxed text-dh-muted sm:text-lg"
-          >
-            We design and develop sites that feel intentional — from first impression
-            to every interaction that follows.
-          </motion.p>
+          <h1 className="mt-8 max-w-xl text-balance text-lg font-medium leading-relaxed text-dh-navy/80 sm:text-xl md:text-2xl">
+            Modern websites and digital marketing — designed to look sharp and work
+            harder for your business.
+          </h1>
 
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-10 flex flex-wrap items-center gap-4"
-          >
+          <p className="mt-5 max-w-lg text-base leading-relaxed text-dh-muted sm:text-lg">
+            Strategy, design, ads, content, and automation — crafted with care for
+            ambitious brands.
+          </p>
+
+          <div className="mt-10 flex flex-wrap items-center gap-4">
             <a
               href="#contact"
-              className="inline-flex items-center rounded-md bg-dh-accent px-6 py-3 text-base font-semibold text-dh-ink transition-all duration-300 hover:bg-dh-accent/90 hover:shadow-[0_0_32px_rgba(94,234,212,0.3)] sm:px-8 sm:py-3.5 sm:text-lg"
+              className="inline-flex items-center rounded-md bg-dh-navy px-7 py-3.5 text-base font-semibold text-dh-cream transition-colors hover:bg-dh-navy-soft sm:text-lg"
             >
               Start a project
             </a>
             <a
-              href="#craft"
-              className="inline-flex items-center text-base font-medium text-dh-mist/80 transition-colors hover:text-dh-accent"
+              href="#services"
+              className="inline-flex items-center border-b border-dh-navy/40 pb-0.5 text-base font-semibold text-dh-navy transition-colors hover:border-dh-navy hover:text-dh-blue"
             >
-              See what we make
-              <span className="ml-2" aria-hidden="true">
-                →
-              </span>
+              See services
             </a>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
+
+        <div className="lg:pt-8">
+          <SitePreview />
+        </div>
       </div>
     </section>
   )

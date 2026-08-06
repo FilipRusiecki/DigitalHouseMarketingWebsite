@@ -1,37 +1,87 @@
 import { motion } from 'framer-motion'
 
+const details = [
+  {
+    label: 'Email',
+    href: 'mailto:mirela.rusiecka@hotmail.com',
+    value: 'mirela.rusiecka@hotmail.com',
+  },
+  {
+    label: 'Phone',
+    href: 'tel:+353872202720',
+    value: '(+353) 87 220 2720',
+  },
+  {
+    label: 'Location',
+    value: 'Wexford Town',
+  },
+  {
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/mirelarusiecka',
+    value: 'mirelarusiecka',
+    external: true,
+  },
+]
+
 const ContactCTA = () => {
   return (
-    <section id="contact" className="relative overflow-hidden bg-dh-ink py-24 sm:py-32">
-      <div
-        className="pointer-events-none absolute inset-0 bg-hero-glow opacity-60"
-        aria-hidden="true"
-      />
-
-      <div className="relative z-10 mx-auto max-w-6xl px-4 text-center sm:px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.7 }}
-        >
-          <h2 className="font-display text-3xl font-bold text-dh-warm sm:text-4xl md:text-5xl">
-            Ready to build yours?
-          </h2>
-          <p className="mx-auto mt-4 max-w-lg text-dh-muted sm:text-lg">
-            Tell us about your project. We will help shape a homepage — and a full site —
-            that feels like home for your brand online.
-          </p>
-          <a
-            href="mailto:hello@digitalhouse.studio"
-            className="mt-10 inline-flex items-center rounded-md bg-dh-accent px-8 py-3.5 text-base font-semibold text-dh-ink transition-all duration-300 hover:bg-dh-accent/90 hover:shadow-[0_0_32px_rgba(94,234,212,0.3)] sm:text-lg"
+    <section id="contact" className="relative scroll-mt-24 bg-dh-cream-deep py-24 sm:py-32">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="grid gap-10 lg:grid-cols-2 lg:gap-12">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.7 }}
+            className="flex flex-col justify-center"
           >
-            hello@digitalhouse.studio
-          </a>
-          <p className="mt-4 text-sm text-dh-muted/70">
-            Placeholder email — swap this when you are ready.
-          </p>
-        </motion.div>
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-dh-blue">
+              Contact
+            </p>
+            <h2 className="mt-3 font-display text-3xl font-bold tracking-tight text-dh-navy sm:text-4xl md:text-5xl">
+              Let’s build something people notice.
+            </h2>
+            <p className="mt-5 text-dh-muted sm:text-lg">
+              Tell us about your goals — websites, ads, content, or a full digital
+              strategy. Based in Wexford Town, working with ambitious brands wherever
+              you are.
+            </p>
+            <a
+              href="mailto:mirela.rusiecka@hotmail.com"
+              className="mt-10 inline-flex w-fit items-center rounded-md bg-dh-navy px-7 py-3.5 text-base font-semibold text-dh-cream transition-colors hover:bg-dh-navy-soft sm:text-lg"
+            >
+              Email Digital House Marketing
+            </a>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="flex flex-col justify-center gap-8 bg-dh-navy px-8 py-10 sm:px-10 sm:py-12"
+          >
+            {details.map((item) => (
+              <div key={item.label}>
+                <p className="text-xs font-semibold uppercase tracking-wider text-dh-blue">
+                  {item.label}
+                </p>
+                {item.href ? (
+                  <a
+                    href={item.href}
+                    target={item.external ? '_blank' : undefined}
+                    rel={item.external ? 'noopener noreferrer' : undefined}
+                    className="mt-2 inline-block break-all text-base text-dh-cream transition-opacity hover:opacity-80 sm:text-lg"
+                  >
+                    {item.value}
+                  </a>
+                ) : (
+                  <p className="mt-2 text-base text-dh-cream sm:text-lg">{item.value}</p>
+                )}
+              </div>
+            ))}
+          </motion.div>
+        </div>
       </div>
     </section>
   )

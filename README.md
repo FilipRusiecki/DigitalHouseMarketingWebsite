@@ -1,6 +1,6 @@
-# Digital House
+# Digital House Marketing
 
-Marketing site for **Digital House** — websites designed and built with clarity, craft, and presence.
+Marketing site for **Digital House Marketing** — websites, ads, content, SEO, and AI-powered growth for ambitious businesses. Based in Wexford Town.
 
 ## Stack
 
@@ -49,7 +49,3 @@ DigitalHouseMarketingWebsite/
 ├── vercel.json
 └── package.json
 ```
-
-## Notes
-
-- Homepage only for now — auth, support, and a database can be added when you need them.

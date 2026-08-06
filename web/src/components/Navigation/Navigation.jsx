@@ -1,53 +1,62 @@
+import { Link, routes } from '@redwoodjs/router'
 import { useState } from 'react'
 
-import { Link, routes } from '@redwoodjs/router'
+import { scrollToId } from 'src/lib/navigation'
+
+const navLinks = [
+  { id: 'services', label: 'Services' },
+  { id: 'process', label: 'Process' },
+  { id: 'why-us', label: 'Why us' },
+  { id: 'experience', label: 'Experience' },
+]
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
-  const scrollTo = (id) => {
+  const go = (id) => {
     setIsMenuOpen(false)
-    const el = document.getElementById(id)
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
+    scrollToId(id)
   }
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-dh-mist/10 bg-dh-ink/80 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <header className="sticky top-0 z-50 border-b border-dh-line bg-dh-cream/95 backdrop-blur-md">
+      <nav
+        className="mx-auto flex h-[4.25rem] max-w-6xl items-center justify-between gap-4 px-4 sm:px-6"
+        aria-label="Main"
+      >
         <Link
           to={routes.home()}
-          className="font-display text-lg font-bold tracking-tight text-dh-warm transition-colors hover:text-dh-accent sm:text-xl"
+          className="shrink-0 font-display text-base font-bold tracking-tight text-dh-navy transition-opacity hover:opacity-70 sm:text-lg"
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
           Digital House
+          <span className="ml-1.5 font-medium text-dh-blue">Marketing</span>
         </Link>
 
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-1 lg:flex">
+          {navLinks.map((link) => (
+            <button
+              key={link.id}
+              type="button"
+              onClick={() => go(link.id)}
+              className="rounded-md px-3 py-2 text-sm font-medium text-dh-muted transition-colors hover:bg-dh-cream-deep hover:text-dh-navy"
+            >
+              {link.label}
+            </button>
+          ))}
           <button
             type="button"
-            onClick={() => scrollTo('craft')}
-            className="text-sm font-medium text-dh-mist/80 transition-colors hover:text-dh-accent"
+            onClick={() => go('contact')}
+            className="ml-2 rounded-md bg-dh-navy px-4 py-2 text-sm font-semibold text-dh-cream transition-colors hover:bg-dh-navy-soft"
           >
-            Craft
+            Contact
           </button>
-          <button
-            type="button"
-            onClick={() => scrollTo('process')}
-            className="text-sm font-medium text-dh-mist/80 transition-colors hover:text-dh-accent"
-          >
-            Process
-          </button>
-          <a
-            href="#contact"
-            className="rounded-md bg-dh-accent px-4 py-2 text-sm font-semibold text-dh-ink transition-all duration-300 hover:bg-dh-accent/90 hover:shadow-[0_0_24px_rgba(94,234,212,0.25)]"
-          >
-            Start a project
-          </a>
         </div>
 
         <button
           type="button"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="p-2 text-dh-mist transition-colors hover:text-dh-accent md:hidden"
+          className="rounded-md p-2 text-dh-navy hover:bg-dh-cream-deep lg:hidden"
           aria-label="Toggle menu"
           aria-expanded={isMenuOpen}
         >
@@ -59,36 +68,32 @@ const Navigation = () => {
             )}
           </svg>
         </button>
-      </div>
+      </nav>
 
       {isMenuOpen && (
-        <div className="border-t border-dh-mist/10 bg-dh-ink px-4 py-4 md:hidden">
-          <div className="flex flex-col gap-4">
+        <div className="border-t border-dh-line bg-dh-cream px-4 py-4 lg:hidden">
+          <div className="mx-auto flex max-w-6xl flex-col gap-1">
+            {navLinks.map((link) => (
+              <button
+                key={link.id}
+                type="button"
+                onClick={() => go(link.id)}
+                className="rounded-md px-3 py-3 text-left font-medium text-dh-navy hover:bg-dh-cream-deep"
+              >
+                {link.label}
+              </button>
+            ))}
             <button
               type="button"
-              onClick={() => scrollTo('craft')}
-              className="text-left text-dh-mist/90 transition-colors hover:text-dh-accent"
+              onClick={() => go('contact')}
+              className="mt-2 rounded-md bg-dh-navy px-4 py-3 text-center text-sm font-semibold text-dh-cream"
             >
-              Craft
+              Contact
             </button>
-            <button
-              type="button"
-              onClick={() => scrollTo('process')}
-              className="text-left text-dh-mist/90 transition-colors hover:text-dh-accent"
-            >
-              Process
-            </button>
-            <a
-              href="#contact"
-              onClick={() => setIsMenuOpen(false)}
-              className="inline-block rounded-md bg-dh-accent px-4 py-2 text-center text-sm font-semibold text-dh-ink"
-            >
-              Start a project
-            </a>
           </div>
         </div>
       )}
-    </nav>
+    </header>
   )
 }
 

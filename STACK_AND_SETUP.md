@@ -19,8 +19,10 @@ yarn rw build        # production build (also used by Vercel)
 ## What’s here now
 
 - Homepage: hero, craft, process, contact CTA
-- Tailwind theme tokens: `dh-ink`, `dh-surface`, `dh-mist`, `dh-accent`, `dh-warm`
-- Framer Motion section / hero animations
+- Tailwind theme: cream + navy (`dh-cream`, `dh-navy`, `dh-blue`)
+- Space Grotesk + Outfit, modern studio layout
+- Light CSS ambient backdrop (no scroll-heavy effects)
+- Framer Motion for section entrance only
 
 ## What’s deferred
 

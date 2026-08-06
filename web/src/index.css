@@ -18,11 +18,11 @@
   }
 
   body {
-    @apply bg-dh-ink font-sans text-dh-mist antialiased;
+    @apply bg-dh-cream font-sans text-dh-navy antialiased;
   }
 
   ::selection {
-    @apply bg-dh-accent/30 text-dh-warm;
+    @apply bg-dh-navy text-dh-cream;
   }
 }
 
