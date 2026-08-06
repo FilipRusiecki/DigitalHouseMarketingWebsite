@@ -1,3 +1,5 @@
+import FadeIn from 'src/components/FadeIn/FadeIn'
+
 const steps = [
   {
     num: '01',
@@ -28,22 +30,26 @@ const ProcessSection = () => {
       className="scroll-mt-24 border-t border-dh-line bg-dh-cream-deep/70 py-20 sm:py-24"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-dh-blue">
-          Process
-        </p>
-        <h2 className="mt-3 max-w-xl font-display text-3xl font-bold tracking-tight text-dh-navy sm:text-4xl">
-          A clear path from idea to impact.
-        </h2>
+        <FadeIn>
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-dh-blue">
+            Process
+          </p>
+          <h2 className="mt-3 max-w-xl font-display text-3xl font-bold tracking-tight text-dh-navy sm:text-4xl">
+            A clear path from idea to impact.
+          </h2>
+        </FadeIn>
 
         <ol className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {steps.map((step) => (
-            <li key={step.num} className="border-t-2 border-dh-navy pt-5">
-              <span className="font-display text-sm font-bold text-dh-blue">{step.num}</span>
-              <h3 className="mt-2 font-display text-xl font-semibold text-dh-navy">
-                {step.title}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-dh-muted">{step.body}</p>
-            </li>
+          {steps.map((step, index) => (
+            <FadeIn key={step.num} delay={index * 0.06} y={14}>
+              <li className="border-t-2 border-dh-navy pt-5">
+                <span className="font-display text-sm font-bold text-dh-blue">{step.num}</span>
+                <h3 className="mt-2 font-display text-xl font-semibold text-dh-navy">
+                  {step.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-dh-muted">{step.body}</p>
+              </li>
+            </FadeIn>
           ))}
         </ol>
       </div>

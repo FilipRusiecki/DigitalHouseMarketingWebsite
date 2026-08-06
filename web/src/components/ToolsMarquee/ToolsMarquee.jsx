@@ -28,7 +28,7 @@ const ToolsMarquee = () => {
       <div className="relative">
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-dh-navy to-transparent sm:w-24" />
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-dh-navy to-transparent sm:w-24" />
-        <div className="flex w-max animate-marquee gap-10 whitespace-nowrap will-change-transform">
+        <div className="flex w-max animate-marquee gap-10 whitespace-nowrap">
           {row.map((tool, i) => (
             <span
               key={`${tool}-${i}`}

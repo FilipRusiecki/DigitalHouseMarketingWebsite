@@ -1,6 +1,8 @@
+import { motion, useReducedMotion } from 'framer-motion'
+
 const SitePreview = () => (
   <div className="relative mx-auto w-full max-w-md lg:max-w-none">
-    <div className="overflow-hidden rounded-lg border border-dh-navy/15 bg-dh-cream shadow-[0_24px_60px_-28px_rgba(12,35,64,0.35)]">
+    <div className="overflow-hidden rounded-lg border border-dh-navy/15 bg-dh-cream">
       <div className="flex items-center gap-2 border-b border-dh-navy/10 bg-dh-cream-deep px-4 py-3">
         <span className="h-2.5 w-2.5 rounded-full bg-dh-navy/25" />
         <span className="h-2.5 w-2.5 rounded-full bg-dh-navy/25" />
@@ -9,7 +11,7 @@ const SitePreview = () => (
           digitalhousemarketing.ie
         </span>
       </div>
-      <div className="space-y-4 bg-gradient-to-br from-dh-cream to-dh-cream-deep p-5 sm:p-6">
+      <div className="space-y-4 bg-dh-cream-deep/40 p-5 sm:p-6">
         <div className="h-3 w-24 rounded-sm bg-dh-blue/40" />
         <div className="h-8 w-4/5 rounded-sm bg-dh-navy/80" />
         <div className="h-2.5 w-full rounded-sm bg-dh-navy/15" />
@@ -26,22 +28,28 @@ const SitePreview = () => (
       </div>
     </div>
     <div
-      className="absolute -bottom-4 -right-4 -z-10 h-full w-full rounded-lg border border-dh-blue/20"
+      className="absolute -bottom-3 -right-3 -z-10 h-full w-full rounded-lg border border-dh-blue/20"
       aria-hidden="true"
     />
   </div>
 )
 
 const Hero = () => {
+  const reduceMotion = useReducedMotion()
+  const enter = reduceMotion
+    ? {}
+    : {
+        initial: { opacity: 0, y: 20 },
+        animate: { opacity: 1, y: 0 },
+      }
+
   return (
     <section className="relative flex min-h-[85svh] items-center overflow-hidden bg-hero-cream">
-      <div
-        className="pointer-events-none absolute bottom-0 right-0 top-24 hidden w-[38%] border-l border-dh-navy/10 xl:block"
-        aria-hidden="true"
-      />
-
       <div className="relative z-10 mx-auto grid w-full max-w-6xl items-center gap-12 px-4 py-20 sm:px-6 sm:py-24 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
-        <div>
+        <motion.div
+          {...enter}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        >
           <p className="mb-6 text-sm font-semibold uppercase tracking-[0.22em] text-dh-blue">
             Wexford · Digital studio
           </p>
@@ -77,11 +85,15 @@ const Hero = () => {
               See services
             </a>
           </div>
-        </div>
+        </motion.div>
 
-        <div className="lg:pt-8">
+        <motion.div
+          className="lg:pt-8"
+          {...enter}
+          transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+        >
           <SitePreview />
-        </div>
+        </motion.div>
       </div>
     </section>
   )

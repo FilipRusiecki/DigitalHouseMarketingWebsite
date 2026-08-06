@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import FadeIn from 'src/components/FadeIn/FadeIn'
 
 const details = [
   {
@@ -28,13 +28,7 @@ const ContactCTA = () => {
     <section id="contact" className="relative scroll-mt-24 bg-dh-cream-deep py-24 sm:py-32">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-12">
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: '-80px' }}
-            transition={{ duration: 0.7 }}
-            className="flex flex-col justify-center"
-          >
+          <FadeIn className="flex flex-col justify-center">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-dh-blue">
               Contact
             </p>
@@ -52,15 +46,9 @@ const ContactCTA = () => {
             >
               Email Digital House Marketing
             </a>
-          </motion.div>
+          </FadeIn>
 
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="flex flex-col justify-center gap-8 bg-dh-navy px-8 py-10 sm:px-10 sm:py-12"
-          >
+          <FadeIn delay={0.1} className="flex flex-col justify-center gap-8 bg-dh-navy px-8 py-10 sm:px-10 sm:py-12">
             {details.map((item) => (
               <div key={item.label}>
                 <p className="text-xs font-semibold uppercase tracking-wider text-dh-blue">
@@ -80,7 +68,7 @@ const ContactCTA = () => {
                 )}
               </div>
             ))}
-          </motion.div>
+          </FadeIn>
         </div>
       </div>
     </section>
