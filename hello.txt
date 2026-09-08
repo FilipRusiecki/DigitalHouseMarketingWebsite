@@ -1,0 +1,3 @@
+Hello from Digital House Marketing Website.
+
+This file was added to verify the project setup works.
